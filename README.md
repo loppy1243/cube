@@ -4,7 +4,7 @@ The LaTeX source of my writeup is under `writeup/`; you cannot build this, unfor
 since it uses macros I have elsewhere on my computer and collecting those all here etc. etc.
 would be a pain. There is, however, a compiled version included as `writeup/writeup.pdf`.
 
-The Julia program for generating tilings is `cube.jl`. To install dependencies, open a Julia
+The Julia program for generating tilings is `src/Cube.jl`. To install dependencies, open a Julia
 prompt in this directory and type
 ```
 julia> import Pkg
