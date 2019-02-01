@@ -1,0 +1,23 @@
+\newcommand\includetiling[2]{%
+  \edef\myfile{#1/#2.png}%
+  \edef\myincludegraphic{\noexpand\includegraphics[width=0.5\linewidth]{\myfile}}
+  \myincludegraphic
+}
+
+\newcommand\includenexttiling[2]{%
+  \edef\nextnum{\the\numexpr #2-1\relax}%
+  \edef\includenextnexttiling{\noexpand\includenexttiling{#1}{\nextnum}}%
+  \ifnum #2=0 \else \includenextnexttiling\includetiling{#1}{#2} \fi%
+}
+
+\newcommand\includealltilings[1]{%
+  \includenexttiling{#1}{48}%
+}
+
+\counterwithout{section}{part}\setcounter{section}0
+\section{Tilings of \IsomC\ by $F$ ($T_F(\IsomC)$)}
+  \label{sec:tilings-T_F(C)}\input{appendix/tilings-T_F(C).tex}
+
+\newpage
+\section{Tilings of the Identity by $\IsomC$ ($T_{\IsomC}(\mm 1)$)}
+  \label{sec:tilings-T_C(I)}\input{appendix/tilings-T_C(I).tex}

@@ -1,0 +1,38 @@
+\stepcounter{section}
+Let the cube \Cube\ be represented by its eight vertices $\vv y_1, \vv y_2, \dotsc, \vv y_8 \in
+\R^3$ where
+\begin{align*}
+\vv y_1 &= (\s1, \s1, \s1),\quad \vv y_2 = (\s1, -1, \s1),\quad \vv y_3 = (-1, -1, \s1),\quad
+  \vv y_4 = (-1, \s1, \s1),\quad \\
+\vv y_5 &= (-1, \s1, -1),\quad \vv y_6 = (-1, -1, -1),\quad \vv y_7 = (\s1, -1, -1),\quad
+  \vv y_8 = (\s1, \s1, -1). \numberthis\label{eqn:verts}
+\end{align*}
+We can easily determine the order $|\IsomC|$, since it must preserve which vertices neighbor
+which. First, choose one of the eight vertices. Then, there are exactly three other vertices
+that it must be connected to, which we may choose from and place beside it. Finally, there are
+two vertices that may be placed beside this, since it is already beside the originally chosen
+vertex. The number of isometries must then be
+\[ |\IsomC| = 8\cdot3\cdot2 = 48. \]
+
+Each face of \Cube\ may be represented by a standard basis vector or its negative
+\[
+\pm\unitv x_1 = (\pm1, 0, 0),\quad \pm\unitv x_2 = (0, \pm1, 0),\quad
+\pm\unitv x_3 = (0, 0, \pm1).
+\]
+In particular, it will be useful in Section~\ref{sec:adj->R3} to know that
+\begin{equation}\label{eqn:vert-to-face}
+\unitv x_1 = \frac14(\vv y_1+\vv y_2+\vv y_7+\vv y_8),\quad
+\unitv x_2 = \frac14(\vv y_1+\vv y_4+\vv y_5+\vv y_8),\quad
+\unitv x_3 = \frac14(\vv y_1+\vv y_2+\vv y_3+\vv y_4).
+\end{equation}
+Any $M \in \IsomC$ must map faces to faces, and so must map $\pm\unitv x_j \mapsto \pm\unitv
+x_k$ for some $j, k = 1, 2, 3$. $M$ is also invertible since $\vv v \mapsto M\vv v$ is
+one-to-one by definition of \IsomC, and so its' columns must be linearly independent. This
+forces the columns of $M$ to take the form
+\begin{equation}\label{eqn:isommat}
+M = (\pm\unitv x_a, \pm\unitv x_b, \pm\unitv x_c)
+\end{equation}
+where $(a, b, c)$ is a permutation of $(1, 2, 3)$. There are $3!$ permutations and $2^3$
+choices of sign, making
+\[ 3!\cdot2^3 = 48 \]
+such matrices, so this necessarily characterizes all $M \in \IsomC$.

@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks,linkcolor=blue,urlcolor=magenta]{hyperref}
+\usepackage{amsmath,tikz,xparse,graphicx,mathtools,mathdots,chngcntr}
+
+\input{/home/loppy/latex/lib/sets.tex}
+\input{/home/loppy/latex/lib/vector.tex}
+\input{/home/loppy/latex/lib/algebra.tex}
+\input{/home/loppy/latex/lib/brackets.tex}
+
+\renewcommand\thepart{\arabic{part}}
+\numberwithin{section}{part}
+\numberwithin{equation}{section}
+
+\newcommand\s{\hphantom-}
+\newcommand\n{\hphantom1}
+\newcommand\numberthis{\stepcounter{equation}\tag\theequation}
+\newcommand\mm[1]{\mathbf{#1}}
+\newcommand\m[2]{\text{#1$#2$}}
+\newcommand\mLarge[1]{\m\Large{#1}}
+\newcommand\topstrut[1]{\rule{0pt}{#1}}
+\newcommand\one{\m\large{\mathbf{1}}}
+
+\NewDocumentCommand\trans{s m}{%
+  \IfBooleanTF{#1}%
+    {\left(#2\right)^{\!\!\top}}%
+    {#2^{\top}}%
+}
+
+\DeclareMathOperator\Isom{Isom}
+\newcommand\Cube{\ensuremath{\mathcal C}}
+\newcommand\IsomC{\ensuremath{\Isom(\Cube)}}
+
+\title{Isometries of the Cube}
+\author{Nicholas Todoroff}
+\date\today
+
+\begin{document}
+\maketitle
+
+\vspace{-5mm}
+{\centering\emph{[Note: This document is not complete]}\par}
+\vspace{-5mm}
+\part*{Introduction}
+                           \input{intro.tex}
+\part{Constuction}
+  \label{part:construction}\input{construction.tex}
+\part{Generators}
+  \label{part:generators}  \input{generators/main.tex}
+\part{Adjacency Representation}
+  \label{part:adjrep}      \input{adjrep/main.tex}
+
+\newpage
+\part*{Appendix}
+                           \input{appendix/main.tex}
+\end{document}

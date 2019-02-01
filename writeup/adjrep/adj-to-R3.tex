@@ -1,0 +1,45 @@
+Recall the construction in Eq.~\ref{eqn:vert-to-face} of the standard basis vectors
+$\set{\unitv x_j}_{j=1}^3$ from the vertex vectors $\set{\vv y_k}_{k=1}^8$:
+\[
+\unitv x_1 = \frac14(\vv y_1+\vv y_2+\vv y_7+\vv y_8),\quad
+\unitv x_2 = \frac14(\vv y_1+\vv y_4+\vv y_5+\vv y_8),\quad
+\unitv x_3 = \frac14(\vv y_1+\vv y_2+\vv y_3+\vv y_4).
+\]
+Define the columns of the matrix $Y \in \Mat\R3[8]$ as $\set{\vv y_k}_{k=1}^8$:
+\[ Y_{ak} = [\vv y_k]_a,\quad a=1,2,3,\; k=1,\dotsc,8. \]
+For an $M \in \IsomC$, since adjacency representation is faithful
+(Eq.~\ref{eqn:adjrep-is-faithful}) there is a unique $I \in P_8$ corresponding to $M$. The matrix $M$ is understood most easily as a mapping of the faces of
+\Cube; $I$ is understood as a mapping of the vertices. Multiplying by $Y$ by $I$ on the right
+permutes the columns of $Y$ according to the permutation that $I$ represents. Constructing the
+faces of \Cube\ from $YI$ then gives us the columns of $M$:
+\begin{gather*}
+M_{a,1} = \frac14\Bbrak(){[YI]_{a,1}+[YI]_{a,2}+[YI]_{a,7}+[YI]_{a,8}},\quad
+M_{a,2} = \frac14\Bbrak(){[YI]_{a,1}+[YI]_{a,4}+[YI]_{a,5}+[YI]_{a,8}}, \\
+M_{a,3} = \frac14\Bbrak(){[YI]_{a,1}+[YI]_{a,2}+[YI]_{a,3}+[YI]_{a,4}}.
+\end{gather*}
+We can write this in a nicer form by noting that by defintion $[YI]_{a,j} =
+\sum_{k=1}^8Y_{ak}I_{kj}$, so
+\begin{alignat*}3
+[YI]_{a,1} + [YI]_{a,2} + [YI]_{a,7} + [YI]_{a,8}
+ &= \sum_{k=1}^8Y_{ak}\brak(){I_{k,1} + I_{k,2} + I_{k,7} + I_{k,8}}
+&&= [YJ(I)]_{a,1} \\
+[YI]_{a,1} + [YI]_{a,4} + [YI]_{a,5} + [YI]_{a,8}
+ &= \sum_{k=1}^8Y_{ak}\brak(){I_{k,1} + I_{k,4} + I_{k,5} + I_{k,8}}
+&&= [YJ(I)]_{a,2} \\
+[YI]_{a,1} + [YI]_{a,2} + [YI]_{a,3} + [YI]_{a,4}
+ &= \sum_{k=1}^8Y_{ak}\brak(){I_{k,1} + I_{k,2} + I_{k,3} + I_{k,4}}
+&&= [YJ(I)]_{a,3},
+\end{alignat*}
+where we've defined $J(I) \in \Mat\R8[3]$ as
+\begin{gather*}
+J_{k,1}(I) = I_{k,1} + I_{k,2} + I_{k,7} + I_{k,8},\quad
+J_{k,2}(I) = I_{k,1} + I_{k,4} + I_{k,5} + I_{k,8}, \\
+J_{k,3}(I) = I_{k,1} + I_{k,2} + I_{k,3} + I_{k,4}
+\end{gather*}
+for $k=1,\dotsc,8$. It follows that $M = \frac14YJ(I)$.
+
+The inverse map is constructed simply by acting on the vertices $\set{y_k}_{k=1}^8$ with $M$,
+which must permute them by some permutation $\sigma \in S_8$:
+\[ My_k = y_{\sigma(k)},\quad k = 1,\dotsc,8, \]
+The corresponding matrix in the adjacenecy representation is just $I_\sigma$ from
+Eq.~\ref{eqn:8-permmat}.

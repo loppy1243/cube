@@ -1,0 +1,92 @@
+We form the adjacency matrix $Z$ by writing $Z_{ij} = 1$ when vertices $i$ and $j$ share an
+edge:
+\[
+Z = \begin{pmatrix}
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 \\
+1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 \\
+1 & 0 & 0 & 0 & 1 & 0 & 1 & 0
+\end{pmatrix}
+\]
+For any permutation $\sigma \in S_8$, we may form a permutation matrix $I_\sigma \in P_8
+\subset \Mat\R8$ that interchanges the rows of another matrix $X \in \Mat\R8$ via matrix
+multiplication $I_\sigma X$. For example,
+\[
+I_{(12)} = \begin{pmatrix}
+\begin{matrix} 0 & 1 \\ 1 & 0 \end{matrix} &\vline& \mLarge{\mm 0} \\ \hline\topstrut{3ex}
+\mLarge{\mm 0} &\vline& \mLarge{\mm 1}
+\end{pmatrix},\quad
+I_{(1234)} = \begin{pmatrix}
+\begin{matrix}
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{matrix} &\vline& \mLarge{\mm 0} \\ \hline\topstrut{3ex}
+\mLarge{\mm 0} &\vline& \mLarge{\mm 1}
+\end{pmatrix},
+\]
+where $\mm 0$ and $\mm 1$ stand for appropriate zero and identity matrices. In general, the
+components of $I_\sigma$ may be written
+\begin{equation}\label{eqn:8-permmat}
+[I_\sigma]_{ij} = \delta_{\sigma(i),j},\quad \text{for } i, j = 1,\dotsc,8,
+\end{equation}
+where $\delta$ is the Kronecker delta. These matrices are necessarily orthogonal, with
+$I_\sigma\trans{I_\sigma} = \mm 1$. They also allow us to permute columns by
+\[ \trans*{I_\sigma\trans X} = X\trans{I_\sigma}. \]
+Permuting vertices of \Cube\ corresponds to permuting the corresponding rows and columns; we
+define the action of $\sigma$ over $X$ by
+\[ \sigma*X = I_\sigma X\trans{I_\sigma} = I_\sigma XI_\sigma^{-1}. \]
+With this action, $P_8$ is in fact a linear representation of $S_8$:
+\begin{gather*}
+I_{\sigma_1}(I_{\sigma_2}A\trans{I_{\sigma_2}})\trans{I_{\sigma_1}}
+= I_{\sigma_1\sigma_2}A\trans{I_{\sigma_1\sigma_2}}, \\
+I_\sigma(\alpha A+\beta B)\trans{I_\sigma}
+= \alpha(I_\sigma A\trans{I_\sigma}) + \beta(I_\sigma B\trans{I_\sigma}),
+\end{gather*}
+for $\alpha,\beta\in\R$ and $A,B\in\Mat\R8$. Futhermore, the representation is faithful, or
+\begin{equation}\label{eqn:adjrep-is-faithful}
+\mm 1X\trans{\mm 1} = X,
+\end{equation}
+which implies it is one-to-one. The isometries of \Cube\ are exactly those automorphisms $X
+\to \sigma*X$ with $Z$ as a fixed point, or
+\[ \IsomC \iso \set{I \in P_8}[I_\sigma Z\trans{I_\sigma} = Z]. \]
+
+In this representation, the generators (\ref{eqn:gens}) take the form
+\begin{gather*}
+I_R = \begin{pmatrix}
+0 & 0 & 0 & \one & 0 & 0 & 0 & 0 \\
+\one & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & \one & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & \one & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & \one & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & \one & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \one \\
+0 & 0 & 0 & 0 & \one & 0 & 0 & 0
+\end{pmatrix},\quad
+I_{r} = \begin{pmatrix}
+0 & \one & 0 & 0 & 0 & 0 & 0 & 0 \\
+\one & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \one & 0 & 0 & 0 & 0 \\
+0 & 0 & \one & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & \one & 0 & 0 \\
+0 & 0 & 0 & 0 & \one & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \one \\
+0 & 0 & 0 & 0 & 0 & 0 & \one & 0
+\end{pmatrix}, \\
+I_s = \begin{pmatrix}
+0 & 0 & 0 & 0 & \one & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \one \\
+\one & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & \one & 0 & 0 & 0 & 0 \\
+0 & 0 & \one & 0 & 0 & 0 & 0 & 0 \\
+0 & \one & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & \one & 0 \\
+0 & 0 & 0 & 0 & 0 & \one & 0 & 0
+\end{pmatrix}.
+\end{gather*}
+(The ones have been bolded for visibility.)
