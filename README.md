@@ -1,8 +1,8 @@
 ## Isometries of the Cube
 
-The LaTeX source of my writeup is under `writeup/`; you cannot build this, unfortumately,
+The LaTeX source of my writeup is under `writeup/`; you cannot build this, unfortunately,
 since it uses macros I have elsewhere on my computer and collecting those all here etc. etc.
-would be a pain.
+would be a pain. There is, however, a compiled version included as `writeup/writeup.pdf`.
 
 The Julia program for generating tilings is `cube.jl`. To install dependencies, open a Julia
 prompt in this directory and type
